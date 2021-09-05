@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Tiger or Lion</string>
+    <string name="lion_or_tiger">Lion or Tiger</string>
+    <string name="restart_the_game">Restart the game</string>
+    <string name="todo">TODO</string>
+    <string name="todo1">TODO</string>
+    <string name="tod2">TODO</string>
+    <string name="todo7">TODO</string>
+    <string name="todo5">TODO</string>
+    <string name="todo6">TODO</string>
 </resources>
