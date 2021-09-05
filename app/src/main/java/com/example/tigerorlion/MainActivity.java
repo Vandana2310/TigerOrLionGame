@@ -81,24 +81,61 @@ public class MainActivity extends AppCompatActivity {
                 currentPlayer = Player.ONE;
             }
             tappedImgView.animate().translationXBy(2000).alpha(1).rotation(3600).setDuration(1000);
+//
+//            for (int[] winnerColumn : winnerRowsAndColumn) {
+//
+//                if (playerChoices[winnerColumn[0]] == playerChoices[winnerColumn[1]] &&
+//                        playerChoices[winnerColumn[1]] == playerChoices[winnerColumn[2]] && playerChoices[winnerColumn[0]] != Player.NO) {
+//                        btnReset.setVisibility(View.VISIBLE);//when winner wins button should be visible
+//                         gameOver=true;
+//                    if (currentPlayer == Player.ONE)
+//                        Toast.makeText(this, "Player 2 is the Winner", Toast.LENGTH_SHORT).show();
+//                    else
+//                        Toast.makeText(this, "Player 1 is the winner", Toast.LENGTH_SHORT).show();
+//
+//
+//                }
 
-            for (int[] winnerColumn : winnerRowsAndColumn) {
+            for(int i =0;i<winnerRowsAndColumn.length;i++) {
+                for (int j = 0; j < winnerRowsAndColumn.length; j++) {
+                    if (playerChoices[winnerRowsAndColumn[i][0]] == playerChoices[winnerRowsAndColumn[i][1]] &&
+                            playerChoices[winnerRowsAndColumn[i][1]] == playerChoices[winnerRowsAndColumn[i][2]] && playerChoices[winnerRowsAndColumn[i][0]] != Player.NO)
+                    {
+                        if(currentPlayer==Player.ONE)
+                        {
+                            Toast.makeText(this, "Player two wins the game\",\"What you want to do?", Toast.LENGTH_SHORT).show();
+                            btnReset.setVisibility(View.VISIBLE);//when winner wins button should be visible
+                            gameOver=true;
+                           // AlertDisplay("Player two wins the game","What you want to do?");
+                        }
+                        else if(currentPlayer==Player.TWO)
+                        {
 
-                if (playerChoices[winnerColumn[0]] == playerChoices[winnerColumn[1]] &&
-                        playerChoices[winnerColumn[1]] == playerChoices[winnerColumn[2]] && playerChoices[winnerColumn[0]] != Player.NO) {
-                        btnReset.setVisibility(View.VISIBLE);//when winner wins button should be visible
-                         gameOver=true;
-                    if (currentPlayer == Player.ONE)
-                        Toast.makeText(this, "Player 2 is the Winner", Toast.LENGTH_SHORT).show();
-                    else
-                        Toast.makeText(this, "Player 1 is the winner", Toast.LENGTH_SHORT).show();
-
-
+                            Toast.makeText(this, "Player one wins the game\",\"What you want to do?", Toast.LENGTH_SHORT).show();
+                            btnReset.setVisibility(View.VISIBLE);//when winner wins button should be visible
+                             gameOver=true;
+                            //AlertDisplay("Player one wins the game","What you want to do?");
+                        }
+                    }
                 }
             }
+
+            if(playerChoices[0]!= Player.NO && playerChoices[1]!= Player.NO && playerChoices[2]!= Player.NO &&
+                    playerChoices[3]!= Player.NO &&playerChoices[4]!= Player.NO &&playerChoices[5]!= Player.NO &&
+                    playerChoices[6]!= Player.NO &&playerChoices[7]!= Player.NO &&playerChoices[8]!= Player.NO )
+            {
+
+                Toast.makeText(this, "Game Draw!!!\",\"Let's find who is better!!", Toast.LENGTH_SHORT).show();
+                //AlertDisplay("Match Draw!!!","Let's find who is better!!");
+                btnReset.setVisibility(View.VISIBLE);
+            }
+
         }
 
-    }
+            }
+
+
+
 
    public void resetTheGame(){
         for(int index=0;index<mGridLayout.getChildCount();index++){
